@@ -35,6 +35,10 @@ body {
 	border: 1px solid black;
 }
 
+.white-key:active {
+	background-color: rgb(230, 230, 230, 1.0);
+}
+
 .black-key {
 	width: 4vh;
 	height: 50%;
@@ -42,4 +46,8 @@ body {
 	position: relative;
 	z-index: 1;
 	margin: 0 -2vh;
+}
+
+.black-key:active {
+	background-color: rgb(40, 40, 40, 1.0);
 }
