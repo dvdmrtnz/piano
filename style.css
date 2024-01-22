@@ -34,6 +34,10 @@ body {
 	box-sizing: border-box;
 	flex-grow: 1;
 	border: 1px solid black;
+
+	display: flex;
+	justify-content: center;
+	align-items: end;
 }
 
 .white-key:active {
@@ -47,8 +51,25 @@ body {
 	position: relative;
 	z-index: 1;
 	margin: 0 -2vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: end;
 }
 
 .black-key:active {
 	background-color: rgb(40, 40, 40, 1.0);
+}
+
+.label {
+	font-family: sans-serif;
+	margin: 10px;
+}
+
+.black-key > .label {
+	color: white;
+}
+
+.white-key > .label {
+	color: black;
 }

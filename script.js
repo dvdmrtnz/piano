@@ -131,7 +131,9 @@ $(document).ready(function(){
 			'<div class="' + note.type + '-key" ' + 
 			'onpointerdown="playSound(\'' + note.id +'\');" ' +
 			'onpointerup="stopSound(\'' + note.id +'\');" ' + 
-			'onpointerout="stopSound(\'' + note.id +'\');"></div>');
+			'onpointerout="stopSound(\'' + note.id +'\');">' +
+				'<div class="label">' + note.name + '</div>' + 
+			'</div>');
 	}
 })
 
