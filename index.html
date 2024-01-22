@@ -8,36 +8,12 @@
 
 	<link rel="stylesheet" href="style.css">
 
+	<script src="3party/jquery.min.js"></script>
 	<script src="3party/tone.min.js"></script>
 	<script src="script.js"></script>
 
 </head>
 <body>
-	<div class="piano" onmousedown="start();">
-		<div class="white-key" onpointerdown="playSound('C4');" onpointerup="stopSound('C4');" onpointerout="stopSound('C4');"></div>
-		<div class="black-key" onpointerdown="playSound('C#4');" onpointerup="stopSound('C#4');" onpointerout="stopSound('C#4');"></div>
-		<div class="white-key" onpointerdown="playSound('D4');" onpointerup="stopSound('D4');" onpointerout="stopSound('D4');"></div>
-		<div class="black-key" onpointerdown="playSound('D#4');" onpointerup="stopSound('D#4');" onpointerout="stopSound('D#4');"></div>
-		<div class="white-key" onpointerdown="playSound('E4');" onpointerup="stopSound('E4');" onpointerout="stopSound('E4');"></div>
-		<div class="white-key" onpointerdown="playSound('F4');" onpointerup="stopSound('F4');" onpointerout="stopSound('F4');"></div>
-		<div class="black-key" onpointerdown="playSound('F#4');" onpointerup="stopSound('F#4');" onpointerout="stopSound('F#4');"></div>
-		<div class="white-key" onpointerdown="playSound('G4');" onpointerup="stopSound('G4');" onpointerout="stopSound('G4');"></div>
-		<div class="black-key" onpointerdown="playSound('G#4');" onpointerup="stopSound('G#4');" onpointerout="stopSound('G#4');"></div>
-		<div class="white-key" onpointerdown="playSound('A4');" onpointerup="stopSound('A4');" onpointerout="stopSound('A4');"></div>
-		<div class="black-key" onpointerdown="playSound('A#4');" onpointerup="stopSound('A#4');" onpointerout="stopSound('A#4');"></div>
-		<div class="white-key" onpointerdown="playSound('B4');" onpointerup="stopSound('B4');" onpointerout="stopSound('B4');"></div>
-		<div class="white-key" onpointerdown="playSound('C5');" onpointerup="stopSound('C5');" onpointerout="stopSound('C5');"></div>
-		<div class="black-key" onpointerdown="playSound('C#5');" onpointerup="stopSound('C#5');" onpointerout="stopSound('C#5');"></div>
-		<div class="white-key" onpointerdown="playSound('D5');" onpointerup="stopSound('D5');" onpointerout="stopSound('D5');"></div>
-		<div class="black-key" onpointerdown="playSound('D#5');" onpointerup="stopSound('D#5');" onpointerout="stopSound('D#5');"></div>
-		<div class="white-key" onpointerdown="playSound('E5');" onpointerup="stopSound('E5');" onpointerout="stopSound('E5');"></div>
-		<div class="white-key" onpointerdown="playSound('F5');" onpointerup="stopSound('F5');" onpointerout="stopSound('F5');"></div>
-		<div class="black-key" onpointerdown="playSound('F#5');" onpointerup="stopSound('F#5');" onpointerout="stopSound('F#5');"></div>
-		<div class="white-key" onpointerdown="playSound('G5');" onpointerup="stopSound('G5');" onpointerout="stopSound('G5');"></div>
-		<div class="black-key" onpointerdown="playSound('G#5');" onpointerup="stopSound('G#5');" onpointerout="stopSound('G#5');"></div>
-		<div class="white-key" onpointerdown="playSound('A5');" onpointerup="stopSound('A5');" onpointerout="stopSound('A5');"></div>
-		<div class="black-key" onpointerdown="playSound('A#5');" onpointerup="stopSound('A#5');" onpointerout="stopSound('A#5');"></div>
-		<div class="white-key" onpointerdown="playSound('B5');" onpointerup="stopSound('B5');" onpointerout="stopSound('B5');"></div>
-	</div>
+	<div class="piano" onmousedown="start();"></div>
 </body>
 </html>
