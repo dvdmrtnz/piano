@@ -26,18 +26,19 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: red;
+	flex-direction: column-reverse;
 }
 
 .white-key {
-	height: 100%;
+	width: 100%;
 	background-color: white;
 	box-sizing: border-box;
 	flex-grow: 1;
 	border: 1px solid black;
 
 	display: flex;
-	justify-content: center;
-	align-items: end;
+	justify-content: end;
+	align-items: center;
 }
 
 .white-key:active {
@@ -45,16 +46,16 @@ body {
 }
 
 .black-key {
-	width: 4vh;
-	height: 50%;
+	width: 50%;
+	height: 4vh;
 	background-color: black;
 	position: relative;
 	z-index: 1;
-	margin: 0 -2vh;
+	margin: -2vh 0;
 
 	display: flex;
-	justify-content: center;
-	align-items: end;
+	justify-content: end;
+	align-items: center;
 }
 
 .black-key:active {
