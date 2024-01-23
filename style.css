@@ -1,0 +1,45 @@
+* {
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	position: fixed;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #f0f0f0;
+}
+
+.piano {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	background-color: red;
+}
+
+.white-key {
+	height: 100%;
+	background-color: white;
+	box-sizing: border-box;
+	flex-grow: 1;
+	border: 1px solid black;
+}
+
+.black-key {
+	width: 4vh;
+	height: 50%;
+	background-color: black;
+	position: relative;
+	z-index: 1;
+	margin: 0 -2vh;
+}
