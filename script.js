@@ -140,10 +140,12 @@ function idToTone(id) {
 }
 
 function keyDown(id) {
+	$('div#' + id).addClass('active');
 	playSound(idToTone(id));
 }
 
 function keyUp(id) {
+	$('div#' + id).removeClass('active');
 	stopSound(idToTone(id));
 }
 

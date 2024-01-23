@@ -41,7 +41,7 @@ body {
 	align-items: center;
 }
 
-.white-key:active {
+.white-key.active {
 	background-color: rgb(230, 230, 230, 1.0);
 }
 
@@ -58,7 +58,7 @@ body {
 	align-items: center;
 }
 
-.black-key:active {
+.black-key.active {
 	background-color: rgb(40, 40, 40, 1.0);
 }
 
