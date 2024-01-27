@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-	notes = ['As3','B3','C4','Cs4','D4','Ds4','E4','F4','Fs4','G4','Gs4','A4','As4','B4',
-			'C5','Cs5','D5','Ds5','E5','F5','Fs5','G5','Gs5','A5','As5','B5', 'C6', 'Cs6'];
+	notes = ['Bb3_As3','B3',
+			'C4','Cs4_Db4','D4','Ds4_Eb4','E4','F4','Fs4_Gb4','G4','Gs4_Ab4','A4','As4_Bb4','B4',
+			'C5','Cs5_Db5','D5','Ds5_Eb5','E5','F5','Fs5_Gb5','G5','Gs5_Ab5','A5','As5_Bb5','B5',
+			'C6','Cs6_Db6'];
 
 	for (i in notes)
 	{
@@ -105,13 +107,16 @@ function idToName(id) {
 		.replaceAll('G', 'Sol')
 		.replaceAll('A', 'La')
 		.replaceAll('B', 'Si')
-		.replaceAll('s', '#');
+		.replaceAll('s', '♯')
+		.replaceAll('b', '♭')
+		.replaceAll('_', '/');
 	return name;
 }
 
 function idToTone(id) {
 	tone = id
-		.replaceAll('s', '#');
+		.replaceAll('s', '#')
+		.replaceAll('/_[A-za-z0-9]*');
 	return tone;
 }
 
