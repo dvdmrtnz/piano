@@ -1,4 +1,4 @@
-$(document).ready(function(){
+document.addEventListener('DOMContentLoaded', function() {
 
 	notes = ['As3','B3','C4','Cs4','D4','Ds4','E4','F4','Fs4','G4','Gs4','A4','As4','B4',
 			'C5','Cs5','D5','Ds5','E5','F5','Fs5','G5','Gs5','A5','As5','B5', 'C6', 'Cs6'];
@@ -6,14 +6,21 @@ $(document).ready(function(){
 	for (i in notes)
 	{
 		note = notes[i]
-		$('div.piano').append(
-			'<div class="' + idToType(note) + '-key" id="' + note + '" ' +
-			'onpointerdown="keyDown(\'' + note +'\');" ' +
-			'onpointerup="keyUp(\'' + note +'\');" ' + 
-			'onpointerout="keyUp(\'' + note +'\');" ' +
-			'onpointercancel="keyUp(\'' + note +'\');">' +
-			    '<div class="label">' + idToName(note) + '</div>' + 
-			'</div>');
+
+		let labelDOM = document.createElement('div');
+		labelDOM.className = 'label';
+		labelDOM.textContent = idToName(note);
+
+		let noteDOM = document.createElement('div');
+		noteDOM.className = idToType(note) + '-key';
+		noteDOM.id = note;
+		noteDOM.appendChild(labelDOM);
+		noteDOM.onpointerdown = keyDown;
+		noteDOM.onpointerup = keyUp;
+		noteDOM.onpointerout = keyUp;
+		noteDOM.onpointercancel = keyUp;
+
+		document.querySelector('div.piano').appendChild(noteDOM);
 	}
 })
 
@@ -47,13 +54,15 @@ function idToType(id) {
 	return type;
 }
 
-function keyDown(id) {
-	$('div#' + id).addClass('active');
+function keyDown(event) {
+	id = event.target.id;
+	document.querySelector('div#' + id).classList.add('active');
 	playSound(idToTone(id));
 }
 
-function keyUp(id) {
-	$('div#' + id).removeClass('active');
+function keyUp(event) {
+	id = event.target.id;
+	document.querySelector('div#' + id).classList.remove('active');
 	stopSound(idToTone(id));
 }
 

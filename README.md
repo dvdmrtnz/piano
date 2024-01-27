@@ -6,5 +6,4 @@ Simple virtual piano website.
 
 ## Credits
 
-* [jQuery](http://jquery.com)
 * [Tone.js](https://github.com/Tonejs/Tone.js)
