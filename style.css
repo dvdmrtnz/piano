@@ -68,9 +68,9 @@ body {
 }
 
 .black-key > .label {
-	color: white;
+	color: rgb(120, 120, 120, 1.0);
 }
 
 .white-key > .label {
-	color: black;
+	color: rgb(180, 180, 180, 1.0);
 }
