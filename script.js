@@ -121,20 +121,13 @@ function idToType(id) {
 }
 
 function keyDown(id) {
+	console.log('Key ' + id + ' down');
 	document.querySelector('div#' + id).classList.add('active');
-	playSound(idToTone(id));
+	synth.triggerAttack(idToTone(id), Tone.now());
 }
 
 function keyUp(id) {
+	console.log('Key ' + id + ' up');
 	document.querySelector('div#' + id).classList.remove('active');
-	stopSound(idToTone(id));
-}
-
-function playSound(note) {
-	synth.triggerRelease(note, Tone.now());
-	synth.triggerAttack(note, Tone.now());
-}
-
-function stopSound(note) {
-	synth.triggerRelease(note, Tone.now());
+	synth.triggerRelease(idToTone(id), Tone.now());
 }
