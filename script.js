@@ -15,16 +15,82 @@ document.addEventListener('DOMContentLoaded', function() {
 		noteDOM.className = idToType(note) + '-key';
 		noteDOM.id = note;
 		noteDOM.appendChild(labelDOM);
-		noteDOM.onpointerdown = keyDown;
-		noteDOM.onpointerup = keyUp;
-		noteDOM.onpointerout = keyUp;
-		noteDOM.onpointercancel = keyUp;
 
 		document.querySelector('div.piano').appendChild(noteDOM);
 	}
+
+	document.addEventListener('touchstart', handleTouchStart);
+	document.addEventListener('touchmove', handleTouchStart);
+	document.addEventListener('touchend', handleTouchEnd);
+	document.addEventListener('touchcancel', handleTouchEnd);
+
+	document.addEventListener('mousedown', handleMouseDown);
+	document.addEventListener('mousemove', handleMouseDown);
+	document.addEventListener('mouseup', handleMouseUp);
+	document.addEventListener('mouseout', handleMouseUp);
+
 })
 
 const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
+
+function getKeyFromPoint(x, y) {
+	var touchedElement = document.elementFromPoint(x, y);
+	if (touchedElement.id) {
+		return touchedElement.id;
+	} else {
+		return touchedElement.parentElement.id;
+	}
+}
+
+/** Dictionary of keys currently touched, indexed by touch identifier. **/
+var currentKeys = {};
+
+function moveTouchToKey(touchIdentifier, key) {
+	if (currentKeys[touchIdentifier] !== key) {
+		if (currentKeys[touchIdentifier]) {
+			console.log('Touch ' + touchIdentifier + ' moved out of ' + currentKeys[touchIdentifier]);
+			keyUp(currentKeys[touchIdentifier]) 
+		};
+		if (key) {
+			console.log('Touch ' + touchIdentifier + ' moved in to ' + key);
+			keyDown(key);
+		}
+		currentKeys[touchIdentifier] = key;
+	}
+}
+
+function handleTouchStart(event) {
+	event.preventDefault();
+	var touches = event.touches;
+	for (var i = 0; i < touches.length; i++) {
+		var touch = touches[i];
+		var newKey = getKeyFromPoint(touch.clientX, touch.clientY);
+		moveTouchToKey(touch.identifier, newKey);
+	}
+}
+
+function handleTouchEnd(event) {
+	event.preventDefault();
+	var touches = event.changedTouches;
+	for (var i = 0; i < touches.length; i++) {
+		var touch = touches[i];
+		moveTouchToKey(touch.identifier, null);
+	}
+}
+
+function handleMouseDown(event) {
+	event.preventDefault();
+	if (event.buttons !== 1) {
+		return;
+	}
+	var newKey = getKeyFromPoint(event.clientX, event.clientY);
+	moveTouchToKey(0, newKey);
+}
+
+function handleMouseUp(event) {
+	event.preventDefault();
+	moveTouchToKey(0, null);
+}
 
 function start() {
 	Tone.start()
@@ -54,14 +120,12 @@ function idToType(id) {
 	return type;
 }
 
-function keyDown(event) {
-	id = event.target.id;
+function keyDown(id) {
 	document.querySelector('div#' + id).classList.add('active');
 	playSound(idToTone(id));
 }
 
-function keyUp(event) {
-	id = event.target.id;
+function keyUp(id) {
 	document.querySelector('div#' + id).classList.remove('active');
 	stopSound(idToTone(id));
 }
