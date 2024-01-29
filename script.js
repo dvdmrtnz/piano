@@ -109,7 +109,7 @@ function idToName(id) {
 		.replaceAll('B', 'Si')
 		.replaceAll('s', '♯')
 		.replaceAll('b', '♭')
-		.replaceAll('_', '/');
+		.replaceAll('_', ' ');
 	return name;
 }
 
