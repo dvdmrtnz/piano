@@ -95,7 +95,8 @@ function handleMouseUp(event) {
 }
 
 function start() {
-	Tone.start()
+	console.log('Tone start');
+	Tone.start();
 }
 
 function idToName(id) {
