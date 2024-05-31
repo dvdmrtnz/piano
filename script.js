@@ -62,6 +62,10 @@ function moveTouchToKey(touchIdentifier, key) {
 }
 
 function handleTouchStart(event) {
+	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
+		Tone.getContext().resume()
+	}
+
 	event.preventDefault();
 	var touches = event.touches;
 	for (var i = 0; i < touches.length; i++) {
@@ -72,6 +76,10 @@ function handleTouchStart(event) {
 }
 
 function handleTouchEnd(event) {
+	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
+		Tone.getContext().resume()
+	}
+
 	event.preventDefault();
 	var touches = event.changedTouches;
 	for (var i = 0; i < touches.length; i++) {
@@ -81,6 +89,10 @@ function handleTouchEnd(event) {
 }
 
 function handleMouseDown(event) {
+	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
+		Tone.getContext().resume()
+	}
+
 	event.preventDefault();
 	if (event.buttons !== 1) {
 		return;
@@ -90,6 +102,10 @@ function handleMouseDown(event) {
 }
 
 function handleMouseUp(event) {
+	if (Tone.getContext().state === "interrupted" || Tone.getContext().state === "suspended") {
+		Tone.getContext().resume()
+	}
+
 	event.preventDefault();
 	moveTouchToKey(0, null);
 }
