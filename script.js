@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+	// Add service worker for offline playing
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('service-worker.js')
+		.then(registration => 
+		{
+			console.log("Service Worker registered"); 
+		}).catch(err => {
+			console.log('Service Worker registration failed: ', err);
+		})
+	}
+
 	notes = ['Bb3_As3','B3',
 			'C4','Cs4_Db4','D4','Ds4_Eb4','E4','F4','Fs4_Gb4','G4','Gs4_Ab4','A4','As4_Bb4','B4',
 			'C5','Cs5_Db5','D5','Ds5_Eb5','E5','F5','Fs5_Gb5','G5','Gs5_Ab5','A5','As5_Bb5','B5',
